@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+
+@import "../../vendor/filament/filament/resources/css/index.css";
+
+@source "../../vendor/filament/forms/resources/views";
+@source "../../vendor/filament/support/resources/views";
+@source "../../vendor/filament/tables/resources/views";
+@source "../../vendor/filament/actions/resources/views";
+@source "../../vendor/filament/widgets/resources/views";
+@source "../../vendor/filament/filament/resources/views";
+
+@theme {
+    --color-institutional-50: #f8f9fa;
+    --color-institutional-100: #f1f3f5;
+    --color-institutional-200: #e9ecef;
+    --color-institutional-300: #dee2e6;
+    --color-institutional-400: #adb5bd;
+    --color-institutional-500: #868e96;
+    --color-institutional-600: #495057;
+    --color-institutional-700: #343a40;
+    --color-institutional-800: #212529;
+    --color-institutional-900: #121214;
+
+    --color-primary-50: #e7ecf3;
+    --color-primary-100: #c5d0e3;
+    --color-primary-200: #9eb0d0;
+    --color-primary-300: #7790bd;
+    --color-primary-400: #5a78af;
+    --color-primary-500: #3d60a1;
+    --color-primary-600: #355895;
+    --color-primary-700: #2d4e87;
+    --color-primary-800: #264479;
+    --color-primary-900: #1a3261;
+
+    --color-accent: #7b1f3f;
+    --color-accent-light: #a84565;
+    --color-accent-dark: #52152a;
+
+    --color-success: #2f855a;
+    --color-warning: #c05621;
+    --color-danger: #9b2c2c;
+    --color-info: #2b6cb0;
+
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
+
+    --spacing-18: 4.5rem;
+    --spacing-22: 5.5rem;
+
+    --radius-sm: 2px;
+    --radius: 4px;
+    --radius-md: 6px;
+}

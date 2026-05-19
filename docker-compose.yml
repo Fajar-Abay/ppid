@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ppid_app
+    restart: unless-stopped
+    ports:
+      - "8000:80"
+    environment:
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - APP_URL=http://localhost:8000
+      - DB_CONNECTION=mysql
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_DATABASE=ppid
+      - DB_USERNAME=ppid_user
+      - DB_PASSWORD=secret
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      # Mount .env if you prefer managing it via volume instead of environment variables above
+      # - ./.env:/var/www/html/.env
+      - storage_data:/var/www/html/storage/app/public
+      - storage_private_data:/var/www/html/storage/app/private
+      - log_data:/var/www/html/storage/logs
+
+  db:
+    image: mysql:8.0
+    container_name: ppid_db
+    restart: unless-stopped
+    environment:
+      - MYSQL_DATABASE=ppid
+      - MYSQL_USER=ppid_user
+      - MYSQL_PASSWORD=secret
+      - MYSQL_ROOT_PASSWORD=root_secret
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+volumes:
+  db_data:
+  storage_data:
+  storage_private_data:
+  log_data:
