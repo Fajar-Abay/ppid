@@ -8,7 +8,7 @@ services:
     container_name: ppid_app
     restart: unless-stopped
     ports:
-      - "8000:80"
+      - "8000:8080"
     environment:
       - APP_ENV=production
       - APP_DEBUG=false
